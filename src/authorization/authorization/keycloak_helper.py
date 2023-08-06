@@ -1,5 +1,3 @@
-import os
-from typing import Dict
 from django.conf import settings
 from keycloak import KeycloakOpenID
 from keycloak.uma_permissions import AuthStatus
