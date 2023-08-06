@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  keycloak:
+      image: quay.io/keycloak/keycloak:21.0.1
+      environment:
+        KC_HTTP_RELATIVE_PATH: ${KC_HTTP_RELATIVE_PATH}
+
+        KC_DB: ${KC_DB}
+        KC_DB_URL: ${KC_DB_URL}
+        KC_DB_USERNAME: ${KC_DB_USERNAME}
+        KC_DB_PASSWORD: ${KC_DB_PASSWORD}
+        KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+        KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+        KC_HEALTH_ENABLED: ${KC_HEALTH_ENABLED}
+      command:
+      - start-dev
+      - "--log-level=INFO"
+      ports:
+        - 8080:8080
+        - 9990:9990
+        - 8443:8443

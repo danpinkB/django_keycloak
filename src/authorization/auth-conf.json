@@ -1,0 +1,56 @@
+{
+  "allowRemoteResourceManagement": true,
+  "policyEnforcementMode": "ENFORCING",
+  "resources": [
+    {
+      "name": "account_resource",
+      "type": "user:account",
+      "ownerManagedAccess": true,
+      "displayName": "",
+      "attributes": {},
+      "_id": "6fcd1ea7-dd3a-4ae8-ba68-9b286c536c1e",
+      "uris": [
+        "account/{id}"
+      ],
+      "scopes": [
+        {
+          "name": "profile"
+        }
+      ],
+      "icon_uri": ""
+    }
+  ],
+  "policies": [
+    {
+      "id": "67cafee1-e6bf-4a17-83e7-cc7051a69e42",
+      "name": "account_policy",
+      "description": "",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "roles": "[{\"id\":\"user\",\"required\":true},{\"id\":\"admin\",\"required\":true}]"
+      }
+    },
+    {
+      "id": "d23b142c-c082-49a5-ad5b-07186b57c329",
+      "name": "account_permission",
+      "description": "",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "resources": "[\"account_resource\"]",
+        "applyPolicies": "[\"account_policy\"]"
+      }
+    }
+  ],
+  "scopes": [
+    {
+      "id": "14f32c47-bdfc-4682-adc3-ad9654bd5fbb",
+      "name": "profile",
+      "iconUri": ""
+    }
+  ],
+  "decisionStrategy": "UNANIMOUS"
+}
