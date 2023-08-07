@@ -26,10 +26,11 @@ SECRET_KEY = 'django-insecure-jo_kq6x4^gd3-7rtk!334_gzzd^i*jrn)qnl8yc5tvid2)ym(d
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTHENTICATION_BACKENDS = [
+    'auth2.authentication_backend.KeycloakAuthBackend'
+]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
 
     'auth2.middleware.KeycloakMiddleware',
+
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
